@@ -5,6 +5,7 @@ import { createCheckbox } from '@shared/components/Checkbox';
 import { createRadio } from '@shared/components/Radio';
 import { createToggle } from '@shared/components/Toggle';
 import { createSelect } from '@shared/components/Select';
+import { createMultiSelect } from '@shared/components/MultiSelect';
 import { showToast } from '@shared/components/ToastController';
 
 const demos = [
@@ -72,6 +73,23 @@ const demos = [
       box.appendChild(sel);
     },
     code: `createSelect({ items: [...], selected: 'forest', onChange: (v) => showToast('Выбрано: ' + v, 'info') })`
+  },
+  {
+    title: 'Мультивыбор (MultiSelect)',
+    render: (box) => {
+      const ms = createMultiSelect({
+        items: [
+          { value: 'sword', label: 'Меч' },
+          { value: 'shield', label: 'Щит' },
+          { value: 'potion', label: 'Зелье' },
+          { value: 'amulet', label: 'Амулет' }
+        ],
+        selected: ['sword'],
+        onChange: (arr) => showToast(`Выбрано: ${arr.join(', ')}`, 'info')
+      });
+      box.appendChild(ms);
+    },
+    code: `createMultiSelect({ items: [...], selected: ['sword'], onChange: (arr) => showToast('Выбрано: ' + arr.join(', '), 'info') })`
   },
   {
     title: 'Тост-уведомления (Toast)',
