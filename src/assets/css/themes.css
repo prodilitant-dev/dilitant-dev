@@ -1,0 +1,27 @@
+/* themes.css */
+.theme-light {
+  --bg-page: #ffffff;
+  --bg-card: #f0f0f0;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --accent: #e67e22;
+  --border: #cccccc;
+}
+
+.theme-dark {
+  --bg-page: #1e1e2e;
+  --bg-card: #2a2a3d;
+  --text-main: #eeeeee;
+  --text-muted: #aaaaaa;
+  --accent: #e67e22;
+  --border: #3a3a4a;
+}
+
+.theme-contrast {
+  --bg-page: #000000;
+  --bg-card: #ffffff;
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+  --accent: #ffff00;
+  --border: #ffffff;
+}

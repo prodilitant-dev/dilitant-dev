@@ -1,0 +1,105 @@
+/* components.css (фрагмент) */
+
+/* ----- Переключатель тем ----- */
+.theme-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.switcher-btn {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+
+.switcher-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 5px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.4rem 0;
+  min-width: 140px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  z-index: 100;
+}
+
+.switcher-dropdown.show {
+  display: flex;
+}
+
+.switcher-dropdown button {
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  padding: 0.45rem 1rem;
+  text-align: left;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.switcher-dropdown button:hover {
+  background: var(--accent);
+  color: var(--bg-page);
+}
+
+.switcher-dropdown button.active {
+  border-left: 3px solid var(--accent);
+  background: rgba(255,255,255,0.05);
+}
+
+/* ----- Портал ----- */
+.portal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding-top: 3rem;
+}
+
+.portal-title {
+  font-family: monospace;
+  color: var(--accent);
+}
+
+.portal-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.oval-btn {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 0.6rem 1.4rem;
+  border-radius: 40px;
+  font-family: monospace;
+  cursor: pointer;
+}
+
+.portal-storage {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.small-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.25rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.65rem;
+  cursor: pointer;
+}

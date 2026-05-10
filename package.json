@@ -1,0 +1,19 @@
+{
+  "name": "dilitant-dev",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "tauri": "tauri",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "vite": "^8.0.11"
+  },
+  "dependencies": {
+    "@tauri-apps/plugin-dialog": "^2.7.1",
+    "@tauri-apps/plugin-fs": "^2.5.1"
+  }
+}

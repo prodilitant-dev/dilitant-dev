@@ -1,0 +1,21 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tauri-apps/tauri/dev/crates/tauri-cli/schema.json",
+  "productName": "dilitant-dev",
+  "version": "0.1.0",
+  "identifier": "com.dilitant.dev",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:5173",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "dilitant-dev",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  }
+}

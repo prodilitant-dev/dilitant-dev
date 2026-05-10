@@ -1,0 +1,14 @@
+# Зависимости
+node_modules/
+
+# Билды
+dist/
+src-tauri/target/
+
+# Локальные настройки
+.vite/
+*.local
+
+# Системные файлы
+.DS_Store
+Thumbs.db
