@@ -4,6 +4,7 @@ import { createTextarea } from '@shared/components/Textarea';
 import { createCheckbox } from '@shared/components/Checkbox';
 import { createRadio } from '@shared/components/Radio';
 import { createToggle } from '@shared/components/Toggle';
+import { showToast } from '@shared/components/ToastController';
 
 const demos = [
   {
@@ -54,6 +55,15 @@ const demos = [
       box.appendChild(createToggle({ checked: false, onChange: (val) => console.log('toggle:', val) }));
     },
     code: `createToggle({ checked: false, onChange: (val) => console.log('toggle:', val) })`
+  },
+  {
+    title: 'Тост-уведомления (Toast)',
+    render: (box) => {
+      box.appendChild(createButton({ label: 'Успех', variant: 'primary', onClick: () => showToast('Операция выполнена!', 'success') }));
+      box.appendChild(createButton({ label: 'Ошибка', variant: 'danger', onClick: () => showToast('Что-то пошло не так', 'error') }));
+      box.appendChild(createButton({ label: 'Инфо', onClick: () => showToast('Для информации', 'info') }));
+    },
+    code: `showToast('Операция выполнена!', 'success')\nshowToast('Что-то пошло не так', 'error')\nshowToast('Для информации', 'info')`
   }
 ];
 

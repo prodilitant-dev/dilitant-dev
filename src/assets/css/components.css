@@ -685,3 +685,33 @@
 .workspace--scroll {
   top: 80px;  /* 47px (заголовок) + 23px (высота) + -px */
 }
+/* ----- Toast-уведомления ----- */
+.toast-container {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1100;
+  pointer-events: none;
+}
+.toast {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.75rem;
+  color: var(--text-main);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  white-space: nowrap;
+  animation: toastSlideUp 0.3s ease;
+}
+.toast--success { border-left: 4px solid var(--success); }
+.toast--error { border-left: 4px solid var(--accent); }
+.toast--info { border-left: 4px solid var(--text-muted); }
+
+@keyframes toastSlideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
