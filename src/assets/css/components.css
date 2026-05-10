@@ -230,16 +230,6 @@
   border-bottom: 1px solid var(--border);
   background: var(--bg-page);
 }
-#workspace {
-  flex: 1;
-  overflow-y: auto;
-  margin: 10px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--bg-page);
-  padding: 12px;
-  scrollbar-width: none;
-}
 #workspace::-webkit-scrollbar { display: none; }
 
 .fixed-bottom-left {

@@ -37,38 +37,11 @@ function setPageMode(isStart) {
   if (!workspace || !startContent) return;
   if (isStart) {
     startContent.style.display = 'flex';
-    // Сбрасываем все старые позиционирования и задаём центрирование
-    workspace.style.position = 'static';
-    workspace.style.left = 'auto';
-    workspace.style.right = 'auto';
-    workspace.style.width = '60%';
-    workspace.style.maxWidth = '800px';
-    workspace.style.height = '30vh';
-    workspace.style.margin = '2rem auto';
-    workspace.style.border = '1px solid var(--border)';
-    workspace.style.borderRadius = '20px';
-    workspace.style.background = '#0a0a0a';
-    workspace.style.display = 'block';
-    workspace.style.overflow = 'hidden';
-    // Убираем классы, которые могут помешать
-    workspace.classList.remove('workspace--scroll');
     workspace.classList.add('workspace--start');
+    workspace.classList.remove('workspace--scroll');
     workspace.innerHTML = '';
   } else {
     startContent.style.display = 'none';
-    // Возвращаем стили для прокручиваемой зоны через класс
-    workspace.style.position = '';
-    workspace.style.left = '';
-    workspace.style.right = '';
-    workspace.style.width = '';
-    workspace.style.maxWidth = '';
-    workspace.style.height = '';
-    workspace.style.margin = '';
-    workspace.style.border = '';
-    workspace.style.borderRadius = '';
-    workspace.style.background = '';
-    workspace.style.display = '';
-    workspace.style.overflow = '';
     workspace.classList.remove('workspace--start');
     workspace.classList.add('workspace--scroll');
   }
