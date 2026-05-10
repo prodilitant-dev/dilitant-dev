@@ -663,3 +663,25 @@
   left: auto;
   right: auto;
 }
+/* ===== Заголовок страницы (кроме стартовой) ===== */
+.page-title {
+  position: fixed;
+  top: 47px;           /* 20px (отступ поиска) + 22px (высота) + 5px */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 200;
+}
+
+.page-title h1 {
+  font-family: monospace;
+  font-size: 1.8rem;
+  color: var(--accent);
+  text-align: center;
+  margin: 0;
+  white-space: nowrap;
+  animation: titleGlow 2s ease-in-out infinite;
+}
+/* ===== Рабочая зона (прокручиваемая) с отступом 5px от заголовка ===== */
+.workspace--scroll {
+  top: 80px;  /* 47px (заголовок) + 23px (высота) + -px */
+}

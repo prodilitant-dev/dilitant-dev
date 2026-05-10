@@ -9,6 +9,7 @@ initTheme();
 
 const workspace = document.getElementById('workspace');
 const startContent = document.getElementById('startContent');
+const pageTitle = document.getElementById('pageTitle');
 const searchContainer = document.getElementById('globalSearchContainer');
 const fsIndicator = document.getElementById('fsIndicatorContainer');
 const themeSwitcherContainer = document.getElementById('themeSwitcherContainer');
@@ -33,15 +34,29 @@ if (backBtn) {
   backBtn.addEventListener('click', () => window.location.hash = '#/');
 }
 
+// Инициализируем заголовок (будет переиспользоваться)
+if (pageTitle) {
+  const h1 = document.createElement('h1');
+  h1.id = 'titleText';
+  pageTitle.appendChild(h1);
+}
+
+window.setTitle = (text) => {
+  const titleEl = document.getElementById('titleText');
+  if (titleEl) titleEl.textContent = text;
+};
+
 function setPageMode(isStart) {
-  if (!workspace || !startContent) return;
+  if (!workspace || !startContent || !pageTitle) return;
   if (isStart) {
     startContent.style.display = 'flex';
+    pageTitle.style.display = 'none';
     workspace.classList.add('workspace--start');
     workspace.classList.remove('workspace--scroll');
     workspace.innerHTML = '';
   } else {
     startContent.style.display = 'none';
+    pageTitle.style.display = 'block';
     workspace.classList.remove('workspace--start');
     workspace.classList.add('workspace--scroll');
   }
@@ -60,11 +75,13 @@ router.addRoute('/', () => {
 });
 router.addRoute('/showcase', () => {
   setPageMode(false);
+  window.setTitle('Подвал');
   window.setBackVisible(true);
   ShowcasePage(workspace);
 });
 router.addRoute('/playground', () => {
   setPageMode(false);
+  window.setTitle('Полигон');
   window.setBackVisible(true);
   PlaygroundPage(workspace);
 });
