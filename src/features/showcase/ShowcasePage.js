@@ -6,18 +6,21 @@ import { createRadio } from '@shared/components/Radio';
 import { createToggle } from '@shared/components/Toggle';
 import { createSelect } from '@shared/components/Select';
 import { createMultiSelect } from '@shared/components/MultiSelect';
+import { createImage } from '@shared/components/Image';
+import { showConfirmDialog } from '@shared/components/ConfirmDialog';
+import { bindTooltip } from '@shared/components/Tooltip';
 import { showToast } from '@shared/components/ToastController';
 
 const demos = [
   {
     title: 'Кнопка (Button)',
     render: (box) => {
-      box.appendChild(createButton({ label: 'Вторичная', variant: 'secondary' }));
+      box.appendChild(createButton({ label: 'Обычная', variant: 'secondary' }));
       box.appendChild(createButton({ label: 'Главная', variant: 'primary' }));
       box.appendChild(createButton({ label: 'Опасная', variant: 'danger' }));
       box.appendChild(createButton({ label: 'Заблокирована', disabled: true }));
     },
-    code: `createButton({ label: 'Вторичная' })\ncreateButton({ label: 'Главная', variant: 'primary' })\ncreateButton({ label: 'Опасная', variant: 'danger' })\ncreateButton({ label: 'Заблокирована', disabled: true })`
+    code: `createButton({ label: 'Обычная', variant: 'secondary' })\ncreateButton({ label: 'Главная', variant: 'primary' })\ncreateButton({ label: 'Опасная', variant: 'danger' })\ncreateButton({ label: 'Заблокирована', disabled: true })`
   },
   {
     title: 'Поле ввода (Input)',
@@ -90,6 +93,49 @@ const demos = [
       box.appendChild(ms);
     },
     code: `createMultiSelect({ items: [...], selected: ['sword'], onChange: (arr) => showToast('Выбрано: ' + arr.join(', '), 'info') })`
+  },
+  {
+    title: 'Изображение (Image)',
+    render: (box) => {
+      const imgWithSrc = createImage({
+        src: 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23e67e22%22/%3E%3C/svg%3E',
+        alt: 'Оранжевый круг'
+      });
+      const imgPlaceholder = createImage({ placeholderText: '🖼️', alt: 'Заглушка' });
+      box.appendChild(imgWithSrc);
+      box.appendChild(imgPlaceholder);
+    },
+    code: `createImage({ src: 'https://...', alt: 'Картинка' })\ncreateImage({ placeholderText: '🖼️' })`
+  },
+  {
+    title: 'Диалог подтверждения (ConfirmDialog)',
+    render: (box) => {
+      const btn = createButton({
+        label: 'Удалить',
+        variant: 'danger',
+        onClick: () => {
+          showConfirmDialog({
+            title: 'Удаление',
+            message: 'Вы уверены, что хотите удалить этот элемент?',
+            confirmText: 'Удалить',
+            danger: true,
+            onConfirm: () => showToast('Элемент удалён', 'success'),
+            onCancel: () => showToast('Отменено', 'info')
+          });
+        }
+      });
+      box.appendChild(btn);
+    },
+    code: `showConfirmDialog({\n  title: 'Удаление',\n  message: 'Вы уверены, что хотите удалить этот элемент?',\n  confirmText: 'Удалить',\n  danger: true,\n  onConfirm: () => showToast('Элемент удалён', 'success')\n})`
+  },
+  {
+    title: 'Тултип (Tooltip)',
+    render: (box) => {
+      const btn = createButton({ label: 'Наведи на меня', variant: 'secondary' });
+      bindTooltip(btn, 'Это всплывающая подсказка', 'top');
+      box.appendChild(btn);
+    },
+    code: `bindTooltip(buttonElement, 'Это всплывающая подсказка', 'top')`
   },
   {
     title: 'Тост-уведомления (Toast)',
