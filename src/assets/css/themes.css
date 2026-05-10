@@ -1,27 +1,122 @@
-/* themes.css */
-.theme-light {
-  --bg-page: #ffffff;
-  --bg-card: #f0f0f0;
-  --text-main: #111111;
-  --text-muted: #555555;
+/* themes.css — 10 мировых тем для «Своих Миров» */
+/* Каждое название звучит как имя отдельной вселенной */
+
+/* 1. Чернолесье — древний лес, где шепчут тени (чуть светлее) */
+.theme-forest {
+  --bg-page: #2a3a3a;
+  --bg-card: #3a4e3f;
+  --bg-card-alpha: rgba(58, 78, 63, 0.5);
+  --text-main: #f0f0f0;
+  --text-muted: #c0c0c0;
   --accent: #e67e22;
-  --border: #cccccc;
+  --border: #4a6050;
+  --success: #2ecc71;
 }
 
-.theme-dark {
-  --bg-page: #1e1e2e;
-  --bg-card: #2a2a3d;
-  --text-main: #eeeeee;
-  --text-muted: #aaaaaa;
-  --accent: #e67e22;
-  --border: #3a3a4a;
+/* 2. Бесконечный риф — царство кораллов и грёз (акцент нежно-коралловый) */
+.theme-reef {
+  --bg-page: #0a2f2f;
+  --bg-card: #0e4a4a;
+  --bg-card-alpha: rgba(14, 74, 74, 0.5);
+  --text-main: #d4f1f9;
+  --text-muted: #8fcaca;
+  --accent: #ffaa88;
+  --border: #1d6f6f;
+  --success: #2ecc71;
 }
 
-.theme-contrast {
-  --bg-page: #000000;
-  --bg-card: #ffffff;
+/* 3. Пыльный тракт — перекрёсток миров, залитый солнцем (акцент терракотовый) */
+.theme-dust {
+  --bg-page: #f5e6d3;
+  --bg-card: #e8d5b5;
+  --bg-card-alpha: rgba(232, 213, 181, 0.5);
+  --text-main: #4a3728;
+  --text-muted: #7a5a44;
+  --accent: #c4552c;
+  --border: #d4b88c;
+  --success: #6b8c42;
+}
+
+/* 4. Абисс — бездна, где свет ещё теплится (без изменений) */
+.theme-abyss {
+  --bg-page: #0f1a2a;
+  --bg-card: #1a2a3f;
+  --bg-card-alpha: rgba(26, 42, 63, 0.5);
+  --text-main: #e0e8f0;
+  --text-muted: #9aaec0;
+  --accent: #2dd4bf;
+  --border: #2a4058;
+  --success: #48c9b0;
+}
+
+/* 5. Северное сияние — танцующий холод (светлее, акцент голубой) */
+.theme-aurora {
+  --bg-page: #1a4048;
+  --bg-card: #2a5a63;
+  --bg-card-alpha: rgba(42, 90, 99, 0.5);
   --text-main: #ffffff;
-  --text-muted: #cccccc;
-  --accent: #ffff00;
-  --border: #ffffff;
+  --text-muted: #cceef3;
+  --accent: #5bc0de;
+  --border: #3c7a85;
+  --success: #00b4d8;
+}
+
+/* 6. Винил и пыль — последний байкер на закате (светлее, акцент охра) */
+.theme-vinyl {
+  --bg-page: #4a403c;
+  --bg-card: #605450;
+  --bg-card-alpha: rgba(96, 84, 80, 0.5);
+  --text-main: #f8f0e0;
+  --text-muted: #d0c0b0;
+  --accent: #d4a373;
+  --border: #7a6a60;
+  --success: #8b5e3c;
+}
+
+/* 7. Неоновая бездна — город, который не спит никогда (акцент неоново-голубой) */
+.theme-neonabyss {
+  --bg-page: #0a0718;
+  --bg-card: #12102a;
+  --bg-card-alpha: rgba(18, 16, 42, 0.5);
+  --text-main: #e0d6ff;
+  --text-muted: #9d94cf;
+  --accent: #00f0ff;
+  --border: #2a2555;
+  --success: #05d9e8;
+}
+
+/* 8. Лунный песок — серебряные дюны снов (без изменений) */
+.theme-moonsand {
+  --bg-page: #e0e5eb;
+  --bg-card: #cbd2db;
+  --bg-card-alpha: rgba(203, 210, 219, 0.5);
+  --text-main: #2c3e44;
+  --text-muted: #5c7078;
+  --accent: #7f8c8d;
+  --border: #b0bcc6;
+  --success: #3a7d6b;
+}
+
+/* 9. Панк‑бессмертен — гимн тех, кто не сломлен (акцент золотой, дерзкий) */
+.theme-punk {
+  --bg-page: #2a1218;
+  --bg-card: #3e1e28;
+  --bg-card-alpha: rgba(62, 30, 40, 0.5);
+  --text-main: #fce8f0;
+  --text-muted: #c89eb0;
+  --accent: #f5c842;
+  --border: #5c2a38;
+  --success: #a8dadc;
+}
+
+/* 10. Санскритские сумерки — там, где боги ещё помнят твоё имя */
+.theme-sanskirt {
+--bg-page: #1e1b15;
+--bg-card: #2b261c;
+--bg-card-alpha: rgba(43, 38, 28, 0.5);
+--text-main: #f4efe6;
+--text-muted: #b8b09a;
+--accent: #c2a75a;
+--border: #4a4234;
+--success: #6f9e6f;
 }

@@ -1,55 +1,55 @@
-// src/core/theme.js
-
 /** Доступные темы: ключ → CSS-класс */
 const THEME_MAP = {
-  light: 'theme-light',
-  dark: 'theme-dark',
-  contrast: 'theme-contrast',
+  forest: 'theme-forest',
+  reef: 'theme-reef',
+  dust: 'theme-dust',
+  abyss: 'theme-abyss',
+  aurora: 'theme-aurora',
+  vinyl: 'theme-vinyl',
+  neonabyss: 'theme-neonabyss',
+  moonsand: 'theme-moonsand',
+  punk: 'theme-punk',
+  sanskirt: 'theme-sanskirt',
 };
 
-/** Читаемые названия тем */
+/** Читаемые названия тем (русский) */
 const THEME_NAMES = {
-  light: 'Светлая',
-  dark: 'Тёмная',
-  contrast: 'Контрастная',
+  forest: 'Чернолесье',
+  reef: 'Бесконечный риф',
+  dust: 'Пыльный тракт',
+  abyss: 'Абисс',
+  aurora: 'Северное сияние',
+  vinyl: 'Винил и пыль',
+  neonabyss: 'Неоновая бездна',
+  moonsand: 'Лунный песок',
+  punk: 'Панк‑бессмертен',
+  sanskirt: 'Санскритские сумерки',
 };
 
-/** Тема по умолчанию */
-const DEFAULT_THEME = 'light';
+const DEFAULT_THEME = 'forest';
 
-/**
- * Применить тему к body и сохранить выбор в localStorage.
- * @param {string} themeKey - ключ темы (light, dark, contrast)
- */
 export function setTheme(themeKey) {
   if (!(themeKey in THEME_MAP)) return;
-
   const classToAdd = THEME_MAP[themeKey];
-  // Удаляем все возможные классы тем
   document.body.classList.remove(...Object.values(THEME_MAP));
-  // Добавляем нужный
   document.body.classList.add(classToAdd);
   localStorage.setItem('dilitant-theme', themeKey);
 }
 
-/** Получить текущий ключ темы (из localStorage или по умолчанию) */
 export function getCurrentTheme() {
   const saved = localStorage.getItem('dilitant-theme');
   if (saved && saved in THEME_MAP) return saved;
   return DEFAULT_THEME;
 }
 
-/** Получить объект всех тем (ключ → CSS-класс) */
 export function getThemeMap() {
   return { ...THEME_MAP };
 }
 
-/** Получить читаемое название темы по ключу */
 export function getThemeName(themeKey) {
   return THEME_NAMES[themeKey] || themeKey;
 }
 
-/** Применить тему при инициализации приложения */
 export function initTheme() {
   setTheme(getCurrentTheme());
 }

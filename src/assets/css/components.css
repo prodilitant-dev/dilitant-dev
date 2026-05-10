@@ -217,3 +217,164 @@
 .demo-section code {
   font-family: monospace;
 }
+
+/* ----- ОБОЛОЧКА (App Shell) ----- */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 8px 12px 4px 12px;
+  min-height: 32px;
+  flex-shrink: 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-page);
+}
+#workspace {
+  flex: 1;
+  overflow-y: auto;
+  margin: 10px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-page);
+  padding: 12px;
+  scrollbar-width: none;
+}
+#workspace::-webkit-scrollbar { display: none; }
+
+.fixed-bottom-left {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 300;
+}
+.fixed-bottom-right {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 300;
+}
+
+.storage-status {
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@keyframes titleGlow {
+  0% { text-shadow: 0 0 2px var(--accent), 0 0 4px var(--accent); opacity: 0.7; }
+  50% { text-shadow: 0 0 10px var(--accent), 0 0 16px var(--accent); opacity: 1; }
+  100% { text-shadow: 0 0 2px var(--accent), 0 0 4px var(--accent); opacity: 0.7; }
+}
+
+.sub-tab {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-family: monospace;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.sub-tab:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+
+/* Поиск и хранилище как подвкладки */
+.global-search,
+.storage-status {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.3rem 0.8rem;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-family: monospace;
+  cursor: pointer;
+  transition: 0.1s;
+}
+.global-search:hover,
+.storage-status:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===== Стеклянный блюр ===== */
+.top-bar {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.sub-tab {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.global-search,
+.storage-status {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.switcher-btn {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* ===== Фиксированная шапка ===== */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/* ===== Рабочая зона (с бордюром) ===== */
+.workspace {
+  position: fixed;
+  top: 50px;          /* высота шапки + небольшой зазор */
+  left: 10px;
+  right: 10px;
+  bottom: 50px;       /* для кнопок внизу */
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-page);
+  overflow-y: auto;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge */
+}
+.workspace::-webkit-scrollbar {
+  display: none;                  /* Chrome/Safari */
+}
+
+/* Центрирование портала */
+.portal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.portal-nav {
+  display: flex;
+  gap: 1.5rem;
+}

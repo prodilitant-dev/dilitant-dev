@@ -11,7 +11,7 @@ export function initThemeSwitcher(container) {
 
   container.innerHTML = `
     <div class="theme-switcher">
-      <button class="switcher-btn" id="themeToggle">оформление</button>
+      <button class="sub-tab" id="themeToggle">оформление</button>
       <div class="switcher-dropdown" id="themeMenu"></div>
     </div>
   `;

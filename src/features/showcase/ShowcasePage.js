@@ -19,24 +19,21 @@ const demos = [
   {
     title: 'Поле ввода (Input)',
     render: (box) => {
-      const input = createInput({ placeholder: 'Введите текст', onChange: (v) => console.log(v) });
-      box.appendChild(input);
+      box.appendChild(createInput({ placeholder: 'Введите текст', onChange: (v) => console.log(v) }));
     },
     code: `createInput({ placeholder: 'Введите текст', onChange: (v) => console.log(v) })`
   },
   {
     title: 'Текстовая область (Textarea)',
     render: (box) => {
-      const textarea = createTextarea({ placeholder: 'Введите описание', rows: 3, onChange: (v) => console.log(v) });
-      box.appendChild(textarea);
+      box.appendChild(createTextarea({ placeholder: 'Введите описание', rows: 3, onChange: (v) => console.log(v) }));
     },
     code: `createTextarea({ placeholder: 'Введите описание', rows: 3, onChange: (v) => console.log(v) })`
   },
   {
     title: 'Флажок (Checkbox)',
     render: (box) => {
-      const cb = createCheckbox({ label: 'Согласен с правилами', onChange: (val) => console.log('checked:', val) });
-      box.appendChild(cb);
+      box.appendChild(createCheckbox({ label: 'Согласен с правилами', onChange: (val) => console.log('checked:', val) }));
     },
     code: `createCheckbox({ label: 'Согласен с правилами', onChange: (val) => console.log('checked:', val) })`
   },
@@ -54,15 +51,14 @@ const demos = [
   {
     title: 'Переключатель (Toggle)',
     render: (box) => {
-      const toggle = createToggle({ checked: false, onChange: (val) => console.log('toggle:', val) });
-      box.appendChild(toggle);
+      box.appendChild(createToggle({ checked: false, onChange: (val) => console.log('toggle:', val) }));
     },
     code: `createToggle({ checked: false, onChange: (val) => console.log('toggle:', val) })`
   }
 ];
 
 export function ShowcasePage(container) {
-  container.innerHTML = '<h1>Подвал (Showcase)</h1>';
+  container.innerHTML = '';
   const wrapper = document.createElement('div');
   wrapper.className = 'showcase-wrapper';
 

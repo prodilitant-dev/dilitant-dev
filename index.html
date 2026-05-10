@@ -3,13 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>dilitant-dev</title>
+  <title>Dilitant-Dev</title>
   <link rel="stylesheet" href="/src/assets/css/base.css">
   <link rel="stylesheet" href="/src/assets/css/themes.css">
   <link rel="stylesheet" href="/src/assets/css/components.css">
 </head>
-<body class="theme-light">
-  <div id="app"></div>
+<body class="theme-forest">
+  <div class="app-shell">
+    <header class="top-bar">
+      <div id="globalSearchContainer"></div>
+      <div id="glowTitleContainer"></div>
+      <div id="fsIndicatorContainer"></div>
+    </header>
+    <main id="workspace" class="workspace"></main>
+    <div class="fixed-bottom-left" id="themeSwitcherContainer"></div>
+    <div class="fixed-bottom-right">
+      <div class="sub-tab" id="backBtn" style="display:none;">вернуться</div>
+      <div class="sub-tab" id="settingsBtn">настройки</div>
+    </div>
+  </div>
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
