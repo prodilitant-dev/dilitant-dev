@@ -4,6 +4,7 @@ import { createTextarea } from '@shared/components/Textarea';
 import { createCheckbox } from '@shared/components/Checkbox';
 import { createRadio } from '@shared/components/Radio';
 import { createToggle } from '@shared/components/Toggle';
+import { createSelect } from '@shared/components/Select';
 import { showToast } from '@shared/components/ToastController';
 
 const demos = [
@@ -55,6 +56,22 @@ const demos = [
       box.appendChild(createToggle({ checked: false, onChange: (val) => console.log('toggle:', val) }));
     },
     code: `createToggle({ checked: false, onChange: (val) => console.log('toggle:', val) })`
+  },
+  {
+    title: 'Выпадающий список (Select)',
+    render: (box) => {
+      const sel = createSelect({
+        items: [
+          { value: 'forest', label: 'Чернолесье' },
+          { value: 'reef', label: 'Бесконечный риф' },
+          { value: 'dust', label: 'Пыльный тракт' }
+        ],
+        selected: 'forest',
+        onChange: (v) => showToast(`Выбрано: ${v}`, 'info')
+      });
+      box.appendChild(sel);
+    },
+    code: `createSelect({ items: [...], selected: 'forest', onChange: (v) => showToast('Выбрано: ' + v, 'info') })`
   },
   {
     title: 'Тост-уведомления (Toast)',

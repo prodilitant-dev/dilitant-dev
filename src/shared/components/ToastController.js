@@ -1,4 +1,13 @@
+/** @type {HTMLElement|null} */
 let toastContainer = null;
+
+function ensureContainer() {
+  if (!toastContainer || !toastContainer.isConnected) {
+    toastContainer = document.createElement('div');
+    toastContainer.className = 'toast-container';
+    document.body.appendChild(toastContainer);
+  }
+}
 
 /**
  * Показать уведомление-тост (одно одновременно).
@@ -7,11 +16,7 @@ let toastContainer = null;
  * @param {number} [duration=3000] - время показа в мс
  */
 export function showToast(message, type = 'info', duration = 3000) {
-  if (!toastContainer) {
-    toastContainer = document.createElement('div');
-    toastContainer.className = 'toast-container';
-    document.body.appendChild(toastContainer);
-  }
+  ensureContainer();
 
   // Удаляем предыдущий тост
   while (toastContainer.firstChild) {
@@ -22,14 +27,26 @@ export function showToast(message, type = 'info', duration = 3000) {
   toast.className = `toast toast--${type}`;
   toast.textContent = message;
 
-  toast.addEventListener('click', () => removeToast(toast));
+  toast.addEventListener('click', () => {
+    removeToast(toast);
+  });
+
   toastContainer.appendChild(toast);
 
-  setTimeout(() => removeToast(toast), duration);
+  const timer = setTimeout(() => {
+    removeToast(toast);
+  }, duration);
 
   function removeToast(el) {
+    clearTimeout(timer);
     if (el && el.parentNode === toastContainer) {
-      el.remove();
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(10px)';
+      el.addEventListener('transitionend', () => {
+        if (el.parentNode === toastContainer) {
+          el.remove();
+        }
+      }, { once: true });
     }
   }
 }
