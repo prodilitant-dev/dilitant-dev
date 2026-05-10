@@ -9,20 +9,18 @@
   <link rel="stylesheet" href="/src/assets/css/components.css">
 </head>
 <body class="theme-forest">
-  <div id="app">
-    <!-- Хранилище (правый верхний угол) -->
-    <div class="storage-indicator" id="storageIndicator">
-      <span id="storagePath">Хранилище</span>
-    </div>
+  <div class="app-shell">
+    <!-- Поиск и хранилище -->
+    <div id="globalSearchContainer" class="global-search-container"></div>
+    <div id="fsIndicatorContainer" class="fs-indicator-container"></div>
 
-    <!-- Поиск и заголовок (скрыты на главной, показываются на других) -->
-    <div id="globalSearchContainer" style="display:none; position:fixed; top:20px; left:20px; z-index:200;"></div>
-    <div id="glowTitleContainer" style="display:none; position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:200;"></div>
+    <!-- Стартовый контент (заголовок + кнопки) -->
+    <div id="startContent" class="start-content"></div>
 
-    <!-- Рабочая область (для контента страниц) -->
-    <main id="workspace"></main>
+    <!-- Рабочая зона (на стартовой – чёрный прямоугольник, на других – контент) -->
+    <main id="workspace" class="workspace"></main>
 
-    <!-- Нижние кнопки -->
+    <!-- Фиксированные углы -->
     <div class="fixed-bottom-left" id="themeSwitcherContainer"></div>
     <div class="fixed-bottom-right">
       <div class="sub-tab" id="backBtn" style="display:none;">вернуться</div>

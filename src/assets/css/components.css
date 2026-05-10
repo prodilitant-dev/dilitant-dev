@@ -345,62 +345,6 @@
   z-index: 100;
 }
 
-/* ===== Рабочая зона (с бордюром) ===== */
-.workspace {
-  position: fixed;
-  top: 50px;          /* высота шапки + небольшой зазор */
-  left: 10px;
-  right: 10px;
-  bottom: 50px;       /* для кнопок внизу */
-  padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--bg-page);
-  overflow-y: auto;
-  scrollbar-width: none;          /* Firefox */
-  -ms-overflow-style: none;       /* IE/Edge */
-}
-.workspace::-webkit-scrollbar {
-  display: none;                  /* Chrome/Safari */
-}
-
-/* Центрирование портала */
-.portal-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-.portal-nav {
-  display: flex;
-  gap: 1.5rem;
-}
-
-/* ----- Портал: центрирование кнопок ----- */
-.portal-mode {
-  display: flex !important;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.portal-buttons {
-  display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-/* ----- Индикатор хранилища: предотвращаем обрезание ----- */
-.storage-status {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 200px;
-}
-
-/* ===== Центрированный портал ===== */
 .portal-page {
   display: flex;
   flex-direction: column;
@@ -420,12 +364,6 @@
 }
 
 /* Уберём рамку у рабочей зоны на главной */
-.workspace {
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--bg-page);
-  overflow-y: auto;
-}
 
 .workspace.no-border {
   border: none;
@@ -462,12 +400,6 @@
 }
 
 /* Убираем рамку у рабочей зоны на главной */
-.workspace {
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  background: var(--bg-page);
-  overflow-y: auto;
-}
 
 .workspace.no-border {
   border: none;
@@ -531,21 +463,175 @@
 }
 
 /* ===== Рабочая зона (только для внутренних страниц) ===== */
-.workspace {
+.workspace::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== Индикатор хранилища (правый верхний угол) ===== */
+.storage-indicator {
   position: fixed;
-  top: 60px;
+  top: 24px;
+  right: 20px;
+  z-index: 200;
+}
+.storage-indicator span {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.75rem;
+  font-family: monospace;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.storage-indicator span:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ===== Портал (центрированный) ===== */
+.portal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 1.5rem;
+  position: relative;
+}
+.portal-title {
+  font-family: monospace;
+  font-size: 2.5rem;
+  color: var(--accent);
+  animation: titleGlow 2s ease-in-out infinite;
+}
+.portal-nav {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ===== Рабочая зона (только для внутренних страниц) ===== */
+.workspace::-webkit-scrollbar {
+  display: none;
+}
+
+/* ===== Стартовая страница ===== */
+.start-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.portal-title {
+  font-family: monospace;
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 2rem;
+  animation: titleGlow 2s ease-in-out infinite;
+}
+
+/* Хранилище на стартовой странице */
+#startContainer .storage-status {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+}
+
+/* Если нужно скрыть поиск на стартовой (он уже не показывается) */
+/* Но на всякий случай */
+#startContainer .global-search {
+  display: none;
+}
+
+/* Хранилище – фиксировано в правом верхнем углу */
+.fs-indicator {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+}
+
+/* ----- Поиск и хранилище (фиксированные в углах) ----- */
+.global-search-container {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 200;
+}
+
+.fs-indicator-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+}
+
+/* ===== Рабочая зона ===== */
+.workspace--scroll {
+  position: fixed;
+  top: 70px;          /* немного отступ сверху */
   left: 10px;
   right: 10px;
-  bottom: 60px;
+  bottom: 70px;
   padding: 12px;
   border: 1px solid var(--border);
   border-radius: 20px;
   background: var(--bg-page);
   overflow-y: auto;
-}
-.workspace::-webkit-scrollbar {
-  display: none;
-}
-.workspace {
   scrollbar-width: none;
+}
+.workspace--scroll::-webkit-scrollbar { display: none; }
+
+
+/* ===== Стартовая страница: рабочая зона под кнопками ===== */
+
+/* ===== Стартовый контент (заголовок + кнопки) ===== */
+.start-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20vh; /* отодвинем от верха */
+}
+
+.start-content h1 {
+  font-family: monospace;
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  animation: titleGlow 2s ease-in-out infinite;
+}
+
+/* ===== Рабочая зона ===== */
+.workspace--scroll {
+  position: fixed;
+  top: 70px;
+  left: 10px;
+  right: 10px;
+  bottom: 70px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--bg-page);
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+.workspace--scroll::-webkit-scrollbar { display: none; }
+
+.workspace--start {
+  width: 60%;
+  height: 30vh;
+  margin: 2rem auto 0;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: #0a0a0a;  /* чёрный цвет */
+  display: block;       /* видим, но без контента */
+  overflow: hidden;
 }
