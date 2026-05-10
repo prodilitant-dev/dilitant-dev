@@ -5,36 +5,38 @@ import { ShowcasePage } from '@features/showcase/ShowcasePage';
 import { PlaygroundPage } from '@features/playground/PlaygroundPage';
 import { initGlowTitle } from '@shared/components/GlowTitle';
 import { initThemeSwitcher } from '@shared/components/ThemeSwitcher';
-import { storageService } from '@core/services/storageService';
 
 initTheme();
 
 const glowContainer = document.getElementById('glowTitleContainer');
 const searchContainer = document.getElementById('globalSearchContainer');
-const fsIndicator = document.getElementById('fsIndicatorContainer');
+const workspace = document.getElementById('workspace');
 const themeSwitcherContainer = document.getElementById('themeSwitcherContainer');
 const settingsBtn = document.getElementById('settingsBtn');
 const backBtn = document.getElementById('backBtn');
+const storagePathEl = document.getElementById('storagePath');
 
-if (glowContainer) initGlowTitle(glowContainer, { text: 'Dilitant-Dev', tag: 'h1' });
+// Инициализируем поиск (пока заглушка)
 if (searchContainer) {
   searchContainer.innerHTML = '<input type="text" class="global-search sub-tab" placeholder="поиск..." disabled>';
 }
-if (fsIndicator) {
-  fsIndicator.innerHTML = '<span class="storage-status sub-tab" id="storagePath">Хранилище: не выбрано</span>';
-  const storagePathEl = document.getElementById('storagePath');
-  storagePathEl.style.cursor = 'pointer';
+
+// Индикатор хранилища
+if (storagePathEl) {
   storagePathEl.addEventListener('click', () => console.log('Выбор хранилища'));
 }
 
+// Переключатель тем
 if (themeSwitcherContainer) initThemeSwitcher(themeSwitcherContainer);
 
+// Кнопка "вернуться"
 if (backBtn) {
   backBtn.className = 'sub-tab';
   backBtn.textContent = 'вернуться';
   backBtn.addEventListener('click', () => window.location.hash = '#/');
 }
 
+// Глобальные функции для страниц
 window.setTitle = (text) => {
   if (glowContainer) {
     const titleEl = glowContainer.querySelector('h1');
@@ -47,20 +49,42 @@ window.setBackVisible = (visible) => {
   if (settingsBtn) settingsBtn.style.display = visible ? 'none' : 'inline-block';
 };
 
-const router = new HashRouter(document.getElementById('workspace'));
+// Функция переключения режима главной страницы
+function setHomeMode(active) {
+  if (active) {
+    // Скрываем панели
+    if (glowContainer) glowContainer.style.display = 'none';
+    if (searchContainer) searchContainer.style.display = 'none';
+    workspace.classList.remove('workspace');
+    workspace.style.position = '';
+    workspace.style.inset = '';
+    workspace.style.padding = '';
+    workspace.style.border = '';
+  } else {
+    // Показываем панели
+    if (glowContainer) glowContainer.style.display = '';
+    if (searchContainer) searchContainer.style.display = '';
+    workspace.classList.add('workspace');
+  }
+}
+
+// Роутер
+const router = new HashRouter(workspace);
 router.addRoute('/', () => {
-  window.setTitle('Dilitant-dev');
+  setHomeMode(true);
   window.setBackVisible(false);
-  PortalPage(document.getElementById('workspace'));
+  PortalPage(workspace);
 });
 router.addRoute('/showcase', () => {
+  setHomeMode(false);
   window.setTitle('Подвал');
   window.setBackVisible(true);
-  ShowcasePage(document.getElementById('workspace'));
+  ShowcasePage(workspace);
 });
 router.addRoute('/playground', () => {
+  setHomeMode(false);
   window.setTitle('Полигон');
   window.setBackVisible(true);
-  PlaygroundPage(document.getElementById('workspace'));
+  PlaygroundPage(workspace);
 });
 router.start();

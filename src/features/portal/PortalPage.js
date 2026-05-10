@@ -1,6 +1,7 @@
 export function PortalPage(container) {
   container.innerHTML = `
     <div class="portal-page">
+      <h1 class="portal-title">Dilitant-dev</h1>
       <div class="portal-nav">
         <button class="oval-btn" id="btn-showcase">Подвал</button>
         <button class="oval-btn" id="btn-playground">Полигон</button>
