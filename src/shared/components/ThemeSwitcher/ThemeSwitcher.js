@@ -1,11 +1,6 @@
-// src/shared/components/ThemeSwitcher.js
-import { setTheme, getCurrentTheme, getThemeMap, getThemeName } from '@core/theme.js';
+import './ThemeSwitcher.css';
+import { setTheme, getCurrentTheme, getThemeMap, getThemeName } from '@core/theme';
 
-/**
- * Инициализирует переключатель тем внутри указанного контейнера.
- * Кнопка «оформление» с выпадающим меню.
- * @param {HTMLElement} container
- */
 export function initThemeSwitcher(container) {
   if (!container) return;
 
@@ -18,20 +13,16 @@ export function initThemeSwitcher(container) {
 
   const themeMenu = document.getElementById('themeMenu');
   const themeToggle = document.getElementById('themeToggle');
-
   if (!themeMenu || !themeToggle) return;
 
   const themeMap = getThemeMap();
   const currentTheme = getCurrentTheme();
 
-  // Заполняем меню темами
   Object.keys(themeMap).forEach(key => {
     const btn = document.createElement('button');
     btn.setAttribute('data-theme', key);
     btn.textContent = getThemeName(key);
-    if (key === currentTheme) {
-      btn.classList.add('active');
-    }
+    if (key === currentTheme) btn.classList.add('active');
     btn.addEventListener('click', (e) => {
       e.stopPropagation();
       setTheme(key);
@@ -42,13 +33,11 @@ export function initThemeSwitcher(container) {
     themeMenu.appendChild(btn);
   });
 
-  // Открытие/закрытие меню
   themeToggle.addEventListener('click', (e) => {
     e.stopPropagation();
     themeMenu.classList.toggle('show');
   });
 
-  // Закрытие при клике вне
   document.addEventListener('click', (e) => {
     if (!themeToggle.contains(e.target) && !themeMenu.contains(e.target)) {
       themeMenu.classList.remove('show');

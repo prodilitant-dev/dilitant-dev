@@ -1,0 +1,22 @@
+.showcase-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.demo-section {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.demo-section h2 {
+  font-size: 1rem;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+.demo-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}

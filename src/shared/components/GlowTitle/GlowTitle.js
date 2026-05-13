@@ -1,3 +1,5 @@
+import './GlowTitle.css';
+
 export function initGlowTitle(container, { text, tag = 'h1' } = {}) {
   if (!container) return;
   const el = document.createElement(tag);

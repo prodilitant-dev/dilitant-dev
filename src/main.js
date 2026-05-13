@@ -3,7 +3,7 @@ import { initTheme } from '@core/theme';
 import { PortalPage } from '@features/portal/PortalPage';
 import { ShowcasePage } from '@features/showcase/ShowcasePage';
 import { PlaygroundPage } from '@features/playground/PlaygroundPage';
-import { initThemeSwitcher } from '@shared/components/ThemeSwitcher';
+import { initThemeSwitcher } from '@shared/components/ThemeSwitcher/ThemeSwitcher.js';
 
 initTheme();
 

@@ -1,18 +1,10 @@
-/**
- * Мультиселект с цветовыми полосками-индикаторами.
- * @param {Object} options
- * @param {Array<{value: string, label: string}>} options.items
- * @param {string[]} [options.selected=[]] - массив выбранных значений
- * @param {Function} [options.onChange] - колбэк при изменении (получает массив строк)
- * @returns {HTMLElement}
- */
+import './MultiSelect.css';
+
 export function createMultiSelect({ items = [], selected = [], onChange } = {}) {
   const container = document.createElement('div');
   container.className = 'ui-multiselect';
 
   const selectedSet = new Set(selected);
-
-  // Триггер
   const trigger = document.createElement('div');
   trigger.className = 'ui-multiselect__trigger';
   const triggerText = document.createElement('span');
@@ -21,7 +13,6 @@ export function createMultiSelect({ items = [], selected = [], onChange } = {}) 
     : items[0]?.label || '—';
   trigger.appendChild(triggerText);
 
-  // Индикатор (полоска)
   const indicator = document.createElement('span');
   indicator.className = 'ui-multiselect__indicator';
   if (selectedSet.size > 0) {
@@ -29,7 +20,6 @@ export function createMultiSelect({ items = [], selected = [], onChange } = {}) 
   }
   trigger.prepend(indicator);
 
-  // Выпадашка
   const dropdown = document.createElement('div');
   dropdown.className = 'ui-multiselect__dropdown';
 

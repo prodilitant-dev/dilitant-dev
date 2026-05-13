@@ -1,3 +1,5 @@
+import './FsStatusIndicator.css';
+
 export function initFsIndicator(container, { currentWorld = '' } = {}) {
   if (!container) return;
   container.innerHTML = `

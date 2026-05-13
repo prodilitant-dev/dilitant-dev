@@ -1,15 +1,5 @@
-/**
- * Показывает диалог подтверждения.
- * @param {Object} options
- * @param {string} options.title - заголовок
- * @param {string} options.message - текст вопроса
- * @param {Function} [options.onConfirm] - колбэк при нажатии «Подтвердить»
- * @param {Function} [options.onCancel] - колбэк при отмене
- * @param {string} [options.confirmText='Подтвердить']
- * @param {string} [options.cancelText='Отмена']
- * @param {boolean} [options.danger=false] - сделать кнопку подтверждения опасной (красной)
- * @returns {{ close: Function }}
- */
+import './ConfirmDialog.css';
+
 export function showConfirmDialog({
   title,
   message,
@@ -19,25 +9,20 @@ export function showConfirmDialog({
   cancelText = 'Отмена',
   danger = false
 }) {
-  // Оверлей
   const overlay = document.createElement('div');
   overlay.className = 'confirm-overlay';
 
-  // Контейнер диалога
   const box = document.createElement('div');
   box.className = 'confirm-box';
 
-  // Заголовок
   const titleEl = document.createElement('h3');
   titleEl.className = 'confirm-title';
   titleEl.textContent = title;
 
-  // Сообщение
   const msgEl = document.createElement('p');
   msgEl.className = 'confirm-message';
   msgEl.textContent = message;
 
-  // Кнопки
   const btnContainer = document.createElement('div');
   btnContainer.className = 'confirm-buttons';
 
@@ -59,14 +44,12 @@ export function showConfirmDialog({
 
   btnContainer.appendChild(cancelBtn);
   btnContainer.appendChild(confirmBtn);
-
   box.appendChild(titleEl);
   box.appendChild(msgEl);
   box.appendChild(btnContainer);
   overlay.appendChild(box);
   document.body.appendChild(overlay);
 
-  // Анимация появления
   requestAnimationFrame(() => overlay.classList.add('confirm-overlay--show'));
 
   function close() {
@@ -78,7 +61,6 @@ export function showConfirmDialog({
     }, 200);
   }
 
-  // Закрытие по клику на оверлей
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
       close();

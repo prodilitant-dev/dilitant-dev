@@ -1,3 +1,5 @@
+import './Textarea.css';
+
 export function createTextarea({ placeholder = '', value = '', rows = 4, onChange } = {}) {
   const textarea = document.createElement('textarea');
   textarea.className = 'ui-textarea';

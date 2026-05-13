@@ -1,3 +1,5 @@
+import './Input.css';
+
 export function createInput({ placeholder = '', type = 'text', value = '', onChange } = {}) {
   const input = document.createElement('input');
   input.className = 'ui-input';

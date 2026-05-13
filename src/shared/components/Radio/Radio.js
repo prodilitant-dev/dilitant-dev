@@ -1,3 +1,5 @@
+import './Radio.css';
+
 export function createRadio({ name, value, label, checked = false, onChange } = {}) {
   const container = document.createElement('label');
   container.className = 'ui-radio';

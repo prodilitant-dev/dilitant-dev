@@ -1,0 +1,64 @@
+/* MultiSelect.css */
+.ui-multiselect {
+  position: relative;
+  display: inline-block;
+  min-width: 180px;
+}
+.ui-multiselect__trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.2rem 0.3rem 0.2rem 0.6rem;
+  color: var(--text-main);
+  font-size: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+.ui-multiselect__indicator {
+  width: 4px;
+  height: 16px;
+  background: var(--border);
+  border-radius: 2px;
+  margin-right: 4px;
+  transition: background 0.15s;
+}
+.ui-multiselect__indicator--active {
+  background: var(--accent);
+}
+.ui-multiselect__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-top: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+  z-index: 150;
+}
+.ui-multiselect__dropdown--open {
+  display: flex;
+}
+.ui-multiselect__option {
+  padding: 0.3rem 0.6rem 0.3rem 1.2rem;
+  font-size: 0.75rem;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: background 0.1s;
+  position: relative;
+}
+.ui-multiselect__option:hover {
+  background: rgba(255,255,255,0.05);
+}
+.ui-multiselect__option--selected {
+  border-left: 4px solid var(--accent);
+  padding-left: calc(1.2rem - 4px);
+}

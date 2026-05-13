@@ -1,24 +1,18 @@
-/** @type {HTMLElement|null} */
+import './Tooltip.css';
+
 let activeTooltip = null;
 
-/**
- * Привязывает тултип к элементу (появляется при наведении).
- * @param {HTMLElement} element - целевой элемент
- * @param {string} text - текст подсказки
- * @param {'top'|'bottom'|'left'|'right'} [position='top'] - положение относительно элемента
- */
 export function bindTooltip(element, text, position = 'top') {
   const tooltip = document.createElement('div');
   tooltip.className = 'tooltip';
   tooltip.textContent = text;
   tooltip.style.position = 'absolute';
   tooltip.style.zIndex = '1001';
-  tooltip.style.pointerEvents = 'none'; // чтобы не перехватывал клики
+  tooltip.style.pointerEvents = 'none';
 
   let showTimeout;
 
   function show() {
-    // Прячем предыдущий активный тултип
     if (activeTooltip && activeTooltip !== tooltip) {
       hide(activeTooltip);
     }
@@ -57,7 +51,7 @@ export function bindTooltip(element, text, position = 'top') {
   }
 
   element.addEventListener('mouseenter', () => {
-    showTimeout = setTimeout(show, 300); // небольшая задержка перед показом
+    showTimeout = setTimeout(show, 300);
   });
 
   element.addEventListener('mouseleave', () => {

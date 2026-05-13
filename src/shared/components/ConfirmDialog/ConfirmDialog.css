@@ -1,0 +1,65 @@
+/* ConfirmDialog.css */
+.confirm-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.confirm-overlay--show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.confirm-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  max-width: 400px;
+  width: 90%;
+  color: var(--text-main);
+}
+.confirm-title {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.confirm-message {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.85rem;
+}
+.confirm-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.ui-button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+  padding: 0.3rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-family: monospace;
+  cursor: pointer;
+  transition: 0.15s;
+}
+.ui-button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.ui-button--primary {
+  background: var(--accent);
+  color: var(--bg-page);
+  border: none;
+}
+.ui-button--danger {
+  background: #c0392b;
+  color: #fff;
+  border: none;
+}

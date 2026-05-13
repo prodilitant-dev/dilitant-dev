@@ -1,15 +1,15 @@
-import { createButton } from '@shared/components/Button';
-import { createInput } from '@shared/components/Input';
-import { createTextarea } from '@shared/components/Textarea';
-import { createCheckbox } from '@shared/components/Checkbox';
-import { createRadio } from '@shared/components/Radio';
-import { createToggle } from '@shared/components/Toggle';
-import { createSelect } from '@shared/components/Select';
-import { createMultiSelect } from '@shared/components/MultiSelect';
-import { createImage } from '@shared/components/Image';
-import { showConfirmDialog } from '@shared/components/ConfirmDialog';
-import { bindTooltip } from '@shared/components/Tooltip';
-import { showToast } from '@shared/components/ToastController';
+import { createButton } from '@shared/components/Button/Button.js';
+import { createInput } from '@shared/components/Input/Input.js';
+import { createTextarea } from '@shared/components/Textarea/Textarea.js';
+import { createCheckbox } from '@shared/components/Checkbox/Checkbox.js';
+import { createRadio } from '@shared/components/Radio/Radio.js';
+import { createToggle } from '@shared/components/Toggle/Toggle.js';
+import { createSelect } from '@shared/components/Select/Select.js';
+import { createMultiSelect } from '@shared/components/MultiSelect/MultiSelect.js';
+import { createImage } from '@shared/components/Image/Image.js';
+import { showConfirmDialog } from '@shared/components/ConfirmDialog/ConfirmDialog.js';
+import { bindTooltip } from '@shared/components/Tooltip/Tooltip.js';
+import { showToast } from '@shared/components/Toast/ToastController.js';
 
 const demos = [
   {

@@ -1,3 +1,5 @@
+import './Toggle.css';
+
 export function createToggle({ checked = false, onChange } = {}) {
   const container = document.createElement('label');
   container.className = 'ui-toggle';

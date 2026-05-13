@@ -1,0 +1,17 @@
+/* Tooltip.css */
+.tooltip {
+  position: absolute;
+  z-index: 1001;
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+.tooltip--visible {
+  opacity: 1;
+}

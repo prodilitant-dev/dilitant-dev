@@ -1,3 +1,5 @@
+import './Checkbox.css';
+
 export function createCheckbox({ label, checked = false, onChange } = {}) {
   const container = document.createElement('label');
   container.className = 'ui-checkbox';

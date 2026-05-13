@@ -1,0 +1,24 @@
+/* Radio.css */
+.ui-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--text-main);
+  cursor: pointer;
+}
+.ui-radio__input {
+  appearance: none;
+  width: 16px; height: 16px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.15s;
+  position: relative;
+}
+.ui-radio__input:checked {
+  background: transparent;
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 4px var(--accent);
+}
